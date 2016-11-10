@@ -1,0 +1,19 @@
+﻿@using MVC7DaysLab3.Models
+@model Employee
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<br/><br/>
+
+<div>
+    @{
+        Employee emp = (Employee)
+            ViewData["Employee"];
+    }
+    
+    <b>Employee Details</b><br/>
+    Employee Name : @emp.FirstName @emp.LastName<br/>
+    Employee Salary : @emp.Salary.ToString("C")
+</div>
+

@@ -1,0 +1,55 @@
+﻿
+@{
+    ViewBag.Title = "AngularJs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script src="~/Scripts/app/controllers/LearnAngularController.js"></script>
+<script src="~/Scripts/AngularLoadingBar/loading-bar.min.js"></script>
+<link href="~/Content/AngularLoadingBar/loading-bar.min.css" rel="stylesheet" />
+
+<div ng-app="LearnAngular">
+    <div ng-controller="LearnAngularController">
+        <h3>1. Passing data from controller to the view.</h3>
+        {{msg}}
+    </div>    
+    <div ng-controller="SecondController">
+        <h3>1.1 Passing data SecondController.</h3>
+        {{msg2}}
+    </div>
+    
+    <hr/>
+
+    <h3>2. Looping through the Names Array</h3>
+    <div class="container" ng-init="names=['Dave','Napur','Michael','Chris']">
+        <ul>
+            <li ng-repeat="name in names">
+                {{name}}
+            </li>
+        </ul>
+    </div>
+    <hr/>
+
+    <h3 ng-init="customers=[
+        {name:'John Smith', city:'Phoenix'},
+        {name:'Cristi Muscalu', city:'Piatra'},
+        {name:'Adi Muscalu', city:'Piatra'},
+        {name:'Adi Muscalu', city:'Bucharest'}
+        ]">
+
+        3. Using Filters, orderBy, uppercase, lowercase
+    </h3>
+
+        Filter by Name: <br/>
+        <input type="text" ng-model="name" /> {{name}} <br/>
+        <ul>
+            <li ng-repeat="cust in customers | filter:name | orderBy:'name'">
+                {{cust.name | uppercase}} - {{cust.city | lowercase}}
+            </li>
+        </ul>   
+
+</div>
+
+
+
+

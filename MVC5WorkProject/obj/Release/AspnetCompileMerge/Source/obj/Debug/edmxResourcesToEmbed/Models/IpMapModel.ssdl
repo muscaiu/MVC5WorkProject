@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IpMapDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="IpMapTable">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="R1Button1" Type="int" />
+    <Property Name="R1Button2" Type="int" />
+    <Property Name="R2Button1" Type="int" />
+    <Property Name="R2Button2" Type="int" />
+  </EntityType>
+  <EntityContainer Name="IpMapDBModelStoreContainer">
+    <EntitySet Name="IpMapTable" EntityType="Self.IpMapTable" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IpMapDBModelStoreContainer" CdmEntityContainer="IpMapDBEntities">
+    <EntitySetMapping Name="IpMapTables">
+      <EntityTypeMapping TypeName="IpMapDBModel.IpMapTable">
+        <MappingFragment StoreEntitySet="IpMapTable">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="R1Button1" ColumnName="R1Button1" />
+          <ScalarProperty Name="R1Button2" ColumnName="R1Button2" />
+          <ScalarProperty Name="R2Button1" ColumnName="R2Button1" />
+          <ScalarProperty Name="R2Button2" ColumnName="R2Button2" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

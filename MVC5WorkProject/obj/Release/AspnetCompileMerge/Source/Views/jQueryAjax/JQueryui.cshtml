@@ -1,0 +1,23 @@
+﻿
+@{
+    ViewBag.Title = "JQueryui";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script>
+    //function Draggable
+    $(function () {
+        $("#draggable").draggable();
+    });
+</script>
+
+
+<h2>JQueryui</h2>
+
+@* Drag and Drop HTML Element *@
+<div id="draggable" class="ui-widget-content">
+    <p>Drag me around</p>
+</div>
+
+
+

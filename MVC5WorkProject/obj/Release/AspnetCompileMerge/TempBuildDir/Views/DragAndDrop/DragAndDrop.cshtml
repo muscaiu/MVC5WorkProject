@@ -1,0 +1,159 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<button id="btnAdd" class="btn btn-success">Add Widget</button>
+<button id="btnRemove" class="btn btn-danger">Remove Widget</button>
+<br />
+<br />
+
+<div class="col-md-12 col-sm-12 col-lg-12">
+    <div class="gridster">
+        <ul>
+            <li data-row="1" data-col="1" data-sizex="1" data-sizey="1" class="whitesmoke">
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="2" data-col="1" data-sizex="1" data-sizey="1"
+                data-max-sizey="2" data-max-sizex="2" class="whitesmoke">
+                254
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="3" data-col="1" data-sizex="1" data-sizey="1"
+                data-max-sizey="2" data-max-sizex="2" class="whitesmoke">
+                111
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="4" data-col="1" data-sizex="1" data-sizey="1"
+                data-max-sizey="2" data-max-sizex="2" class="whitesmoke">
+                254
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="1" data-col="2" data-sizex="1" data-sizey="1"
+                data-max-sizey="3" data-max-sizex="3" class="whitesmoke">
+                9
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="2" data-col="2" data-sizex="1" data-sizey="1"
+                data-max-sizey="3" data-max-sizex="3" class="whitesmoke">
+                254
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="3" data-col="2" data-sizex="1" data-sizey="1"
+                data-max-sizey="3" data-max-sizex="3" class="whitesmoke">
+                254
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="4" data-col="2" data-sizex="1" data-sizey="1"
+                data-max-sizey="3" data-max-sizex="3" class="whitesmoke">
+                11
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+
+            <li data-row="5" data-col="1" data-sizex="2" data-sizey="1"
+                data-max-sizey="3" data-max-sizex="3" class="whitesmoke">
+                99
+                <img class="close" src="~/Images/close.png" alt="x" style="float: right" />
+                <span class="gs-resize-handle gs-resize-handle-both"></span>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .gridster ul {
+        list-style: none;
+    }
+
+    .yellow {
+        background: yellow;
+        text-align: center;
+        vertical-align: middle;
+        line-height: 50px;
+    }
+
+    .orange {
+        background: orange;
+        text-align: center;
+        font-size: 100%;
+        vertical-align: middle;
+        line-height: 50px;
+    }
+
+    .red {
+        background: red;
+        text-align: center;
+        font-size: 100%;
+        vertical-align: middle;
+        line-height: 50px;
+    }
+
+    .whitesmoke {
+        background: whitesmoke;
+        text-align: center;
+        font-size: 80%;
+        vertical-align: middle;
+        line-height: 60px;
+    }
+</style>
+
+@section scripts
+{
+    @*Imposting Gridster*@
+    <script src="~/Scripts/MyScripts/jquery.gridster.js"></script>  
+
+    <script>
+        $(function () { //Initializing ..messes with the <ul> from html
+            $(".gridster ul").gridster({
+                widget_margins: [5, 5], //space between widgets
+                widget_base_dimensions: [50, 50] //widget dimenstions
+            });
+        });
+
+        $(function () { //Add and Remove Widgets
+            //declaring gridster
+            var gridster = $(".gridster ul").gridster().data('gridster');
+            var htmlWidget = ' <li data-row="4" data-col="1" data-sizex="1" data-sizey="1"' +
+                'data-max-sizey="2" data-max-sizex="2" class="whitesmoke">' +
+                '<img class="close" src="~/Images/close.png" alt="x" style="float: right" />' +
+                '<span class="gs-resize-handle gs-resize-handle-both"></span></li>';
+
+            //Add new Widget
+            $("#btnAdd").click(function () {
+                gridster.add_widget(htmlWidget, 1, 1);
+            });
+            //Remove Random Widget
+            $("#btnRemove").on('click', function () {
+                gridster.remove_widget(
+                    $('.gridster li').eq(1));
+            });
+            //Remove Clicked Widget
+            $(document).on("click", ".gridster .close", function () {
+                gridster.remove_widget($(this).parent());
+            });
+        });
+        //Added from here:
+        //http://stackoverflow.com/questions/23568829/add-remove-individual-widgets-from-gridster
+    </script>
+}
+
+
+
+
+
